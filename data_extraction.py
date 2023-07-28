@@ -10,9 +10,9 @@ class DataExtractor:
             pass
   
  # Read from RDS database through the engine
-    def read_rds_table(self,engine, table_name= 'table_name'):
+    def read_rds_table(self,engine, table_name):
         with engine.begin() as conn: #engine.begin vs engine.connect. Start connection to engine to allow access to data
-            return pd.read_sql_table('table_name', con=conn)# extracting table tagged table_name as a DataFrame   
+            return pd.read_sql_table(table_name, con=conn)# extracting table tagged table_name as a DataFrame   
   
  # Inspect the database for table names
     def list_db_tables(self, engine): 
@@ -52,8 +52,18 @@ class DataExtractor:
         obj = s3.get_object(Bucket='data-handling-public', Key='products.csv')
         products_df = pd.read_csv(obj['Body'])
         return products_df
+    
+
+ # Get json file from AWS s3 link
+
+    def extract_json(self, link):
+        link = 'http://data-handling-public.s3.eu-west-1.amazonaws.com/date_details.json'
+        data = requests.get(link).json()
+        df = pd.DataFrame(data) 
+        return df
 
 if __name__ == '__main__':
 
     dataExtractor = DataExtractor()    
+
 
