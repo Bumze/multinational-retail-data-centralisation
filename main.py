@@ -58,9 +58,7 @@ if __name__ == '__main__':
     upload_user_data = databaseConnector.upload_to_db(clean_user_data,'dim_users', my_engine)
     upload_orders_table = databaseConnector.upload_to_db(clean_orders_data, 'orders_table', my_engine)
     upload_products_data = databaseConnector.upload_to_db(clean_products_data,'dim_products', my_engine)
-    upload_stores_data = databaseConnector.upload_to_db(clean_stores_data,'dim_store_details', my_engine)
-    upload_card_data = databaseConnector.upload_to_db(clean_card_data,'dim_card_details', my_engine)
-    upload_date_data = databaseConnector.upload_to_db(clean_dates_data,'dim_date_times', my_engine)
+    gitupload_date_data = databaseConnector.upload_to_db(clean_dates_data,'dim_date_times', my_engine)
    
    #  clean_orders_data.info()
    
