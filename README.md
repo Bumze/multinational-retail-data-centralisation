@@ -98,10 +98,10 @@ the average timestamp descending. The solution uses three CTEs;
 - **next_times** to generate timestamps of next sales. Here a SQL window function LEAD() returns the next record in the timestamp set in the next_times column.
 - **avg_times** to calculate the average. The average times column is derived with the AVG() function used on the difference between sale timestamps. 
 
-Finally the required parameters are extracted from the average times using SQL EXTRACT() function.
-(Slight issue remains- milliseconds were hard to extract, there exist some negative values in the computations. These can be interpreted by adding the negative values to the rounded data. *Or could milliseconds be ignored, the values can show in seconds if not rounded??!*)
+Finally the required parameters are extracted from the average times using SQL EXTRACT() function. Hour extraction, Minutes and Seconds in the timestamp were extracted sucessfully. 
+(Slight issue remains- milliseconds were hard to extract, some negative values exists in its computations. These can be interpreted by adding the negative values to the rounded data. *Or could milliseconds be ignored, the millisecondth values do show in the secondth if not rounded!*)
 
-[^1]: I acknowledge the various sources of knowledge and information gathering - AIcore Team, Documentations from Pandas, Numpy, PostgreSQL, Stackoverflow, geeksforgeeks, colleagues and many other resources online.
+[^1]: I acknowledge the various sources of knowledge and information - AIcore Team, Documentations from Pandas, Numpy, PostgreSQL, Stackoverflow, geeksforgeeks, colleagues and many other resources online.
 
 
 
