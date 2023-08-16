@@ -33,7 +33,7 @@ The methods include:
 - **retrieve_pdf_data** This retrieves pdf data from given AWS link. It enables data extraction from a PDF file on an Amazon AWS repository and contain store card details, it returns a pandas DataFrame named card_df.
 
 (*A dictionary was created to provide details for 2 API endpoints, this is needed to create a method to return number of stores which another method will take in as argument to extract data from the number of stores*.)
-- **list_number_of_stores** Method to list number of stores to retrieve data from, it returns a number.
+- **list_number_of_stores** A method to list number of stores to retrieve data from, it returns a number.
 - **retrieve_store_data** This method retrieves data of a number of stores from the given aws link and returns a pandas DataFrame.
 - **extract_from_s3** This method extracts products_data csv file from an AWS S3 Bucket and returns a pandas DataFrame.
 - **extract_json** This method gets a json file from an AWS s3 link and returns a pandas DataFrame.
