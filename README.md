@@ -71,6 +71,12 @@ This function uses the engine to connect to the local postgresql database and up
 Finally, using Python script, a file named data_cleaning.py is created. It contain a class DataCleaning with methods to clean data from each of the data sources.
 All methods defined in the cleaning process are explained in the data_cleaning.py file. Various data transform techniques in Pandas and Numpy were employed to remove erroneous data, duplicates, bad and null values. Users' data, stores' data, products' data, orders' and dates' data were processed. Dirty data is cleaned; nulls are removed as safely as possible while maintaining data integrity. Mathematical conversions are made in the conversion method for products data. Also data types were changed in some places to avoid bottlenecks in the future especially while doing data analysis. 
 
+4. **Instantiating Classes and Calling the Functions** 
+
+
+To instantiate the created classes and call the functions to execute actions, a final python script is created, named main.py. Special function if__name__ = “__main__” is employed to ensure the python interpreter runs the module as the main program. All functions programmed from the Extraction, Connection and Cleaning python files are driven from this main file.
+
+
 ## Milestone 3
 ### Schema Development
 
@@ -102,9 +108,3 @@ Finally the required parameters are extracted from the average times using SQL E
 (Slight issue remains- milliseconds were hard to extract, some negative values exists in its computations. These can be interpreted by adding the negative values to the rounded data. *Or could milliseconds be ignored, the millisecondth values do show in the secondth if not rounded!*)
 
 [^1]: I acknowledge the various sources of knowledge and information - AIcore Team, Documentations from Pandas, Numpy, PostgreSQL, Stackoverflow, geeksforgeeks, colleagues and many other resources online.
-
-
-
-
-
-
