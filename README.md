@@ -8,7 +8,13 @@ This Project is completed as the fourth in a required list of projects at Aicore
 ### Environment set up
 
 
-A Python environment is created up in VScode, Jupyter notebook activated, GitBash is installed. Necessary libraries required for the project were installed as well. Vital libraries used include Numpy, Pandas, PyYAML, requests, SQLAlchemy, psycopg2, botocore, boto3, s3, tabula and their dependencies. Finally a Github repository was set up for version control and management and for the team to view project progress.
+A Python environment is created locally in VScode, I had pip3 and conda installed but used pip to install my libraries and dependencies. Jupyter notebook was activated, GitBash installed. Necessary libraries required for the project were installed as well using pip install *library*. Vital librariesand their dependencies used include 
+
+- Numpy, Pandas, for data cleaning.
+- PyYAML, requests, SQLAlchemy, psycopg2, botocore, boto3, s3 for setting up utilities for  data extraction from various AWS data sources.
+- Tabula for pdf extraction and collation.
+
+Finally a Github repository was set up for version control and management and for the team to view project progress.
 
 ## Milestone 2
 ### Extract and Clean Data from different data sources
