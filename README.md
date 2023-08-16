@@ -17,7 +17,7 @@ A Python environment is created up in VScode, Jupyter notebook activated, GitBas
 A PGAdmin4 database called sales_data is initialised locally to store extracted data.
 Using Python scripts, files with classes and methods to extract data, clean it and upload the cleaned data to the database were created. 
   
-1. [Extraction] 
+1. **Extraction**
 
 
 A data_extraction.py file handles all extraction of data. Its class named DataExtractor work as a utility class; in it methods that help extract data from different data sources were created. 
@@ -25,13 +25,14 @@ The methods include:
 - **read_rds_table** It reads from RDS database through the engine. This starts a connection to a SQAlchemy engine to allow access to data from a sql table and returns a pandas DataFrame.
 - **list_db_tables** It inspects the database for table names. This takes the engine as an argument and returns the table names.
 - **retrieve_pdf_data** This retrieves pdf data from given AWS link. It enables data extraction from a PDF file on an Amazon AWS repository and contain store card details, it returns a pandas DataFrame named card_df.
+
 (*A dictionary was created to provide details for 2 API endpoints, this is needed to create a method to return number of stores which another method will take in as argument to extract data from the number of stores*.)
 - **list_number_of_stores** Method to list number of stores to retrieve data from, it returns a number.
 - **retrieve_store_data** This method retrieves data of a number of stores from the given aws link and returns a pandas DataFrame.
 - **extract_from_s3** This method extracts products_data csv file from an AWS S3 Bucket and returns a pandas DataFrame.
 - **extract_json** This method gets a json file from an AWS s3 link and returns a pandas DataFrame.
 
-2. [Connection] 
+2. **Connection**
 
 
 Using Python script, a file named database_utils.py is created. Its class DatabaseConnector and methods are created to enable connection to and upload data to the empty database ceated in PGAdmin4. The methods include
@@ -42,7 +43,7 @@ This method initialises and returns a sqlalchemy database engine. It takes the d
 - **upload_to_db**
 This function uses the engine to connect to the local postgresql database and uploads cleaned data.
     
-3. [Cleaning] 
+3. **Cleaning** 
 
 
 Finally, using Python script, a file named data_cleaning.py is created. It contain a class DataCleaning with methods to clean data from each of the data sources.
@@ -62,7 +63,9 @@ error correction on products_data, orders_data and dates_data in VScode, checkin
 ### Querying the Data
 
 
-This section is mainly for data analysis. The Operations team has questions that need solutions from the derived data. There are nine key questions; the solutions are deployed by using SQL syntaxes. Certain questions posed more challenge to me, out of which is Question 9: Determine the average time taken between each sale grouped by year.
+This section is mainly for data analysis. The Operations team has questions that need solutions from the derived data. There are nine key questions to which solutions are provided by using SQL syntaxes in DDL, DQL, and DML. The questions are answered as tasks.
+
+Certain questions posed more challenge to me, out of which is Question 9: Determine the average time taken between each sale grouped by year.
 
 
 The task is interpreted as finding the average of the time difference between each sale over the years. 
