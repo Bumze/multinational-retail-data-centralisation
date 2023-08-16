@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 class DatabaseConnector:
     def __init__(self) -> None:
         pass
-
+    ''' This method reads secured details on a yaml file required for connection  '''  
     def read_db_creds(self, filename):   
         with open (filename, 'r') as file:
             return yaml.safe_load(file)
