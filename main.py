@@ -60,5 +60,3 @@ if __name__ == '__main__':
     upload_products_data = databaseConnector.upload_to_db(clean_products_data,'dim_products', my_engine)
     gitupload_date_data = databaseConnector.upload_to_db(clean_dates_data,'dim_date_times', my_engine)
    
-   #  clean_orders_data.info()
-   
