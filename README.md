@@ -42,8 +42,24 @@ The methods include:
 
 
 Using Python script, a file named database_utils.py is created. Its class DatabaseConnector and methods are created to enable connection to and upload data to the empty database ceated in PGAdmin4. The methods include
+
 - **read_db_creds** 
-This method reads secured details on a yaml file required for connection through the sqlalchemy database engine to extract and through the engine to load to the database.
+This method reads secured details on a yaml file required for connection through the sqlalchemy database engine to extract and through the engine to load to the database. The yaml file contained credentials in the format 
+
+RDS_HOST: *add data source link*
+RDS_PASSWORD: *Password*
+RDS_USER: *add user*
+RDS_DATABASE: postgres
+RDS_PORT: 5432
+
+Adapt this for creating the credentials for uploading to the local host as 
+
+RDS_HOST: 'localhost'
+RDS_PASSWORD: 'Password'
+RDS_USER: 'postgres'
+RDS_DATABASE: 'dbname'
+RDS_PORT: 5432
+
 - **init_db_engine**
 This method initialises and returns a sqlalchemy database engine. It takes the details from the yaml file and connects to the engine.
 - **upload_to_db**
@@ -76,10 +92,19 @@ Certain questions posed more challenge to me, out of which is Question 9: Determ
 
 The task is interpreted as finding the average of the time difference between each sale over the years. 
 Average(sale timestamp - next sale timestamp) computed over the years and ordered by 
-the average timestamp descending. The solution uses three CTEs to concatenate given time details to form a timestamp. SQL window function LEAD() returns the next record in the timestamp set in the next_times column.
-The average times column is derived with the AVG() function used on the difference between sale 
-Timestamps. Finally the required parameters are extracted from the average times. 
-(Slight issue remains- milliseconds were hard to extract, there exist some negative values in the computations. I could ignore the milliseconds detail??!)
+the average timestamp descending. The solution uses three CTEs; 
+
+**date_times** to concatenate given time details to form a timestamp. 
+**next_times** to generate timestamps of next sales. Here a SQL window function LEAD() returns the next record in the timestamp set in the next_times column.
+**avg_times** to calculate the average. The average times column is derived with the AVG() function used on the difference between sale timestamps. 
+
+Finally the required parameters are extracted from the average times using SQL EXTRACT() function.
+(Slight issue remains- milliseconds were hard to extract, there exist some negative values in the computations. These can be interpreted by adding the negative values to the rounded data. *Or could milliseconds be ignored, the values can show in seconds if not rounded??!*)
+
+[^1]: I acknowledge the various sources of knowledge and information gathering - AIcore Team, Documentations from Pandas, Numpy, PostgreSQL, Stackoverflow, geeksforgeeks, colleagues and many other resources online.
+
+
+
 
 
 
