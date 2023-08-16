@@ -94,9 +94,9 @@ The task is interpreted as finding the average of the time difference between ea
 Average(sale timestamp - next sale timestamp) computed over the years and ordered by 
 the average timestamp descending. The solution uses three CTEs; 
 
-**date_times** to concatenate given time details to form a timestamp. 
-**next_times** to generate timestamps of next sales. Here a SQL window function LEAD() returns the next record in the timestamp set in the next_times column.
-**avg_times** to calculate the average. The average times column is derived with the AVG() function used on the difference between sale timestamps. 
+- **date_times** to concatenate given time details to form a timestamp. 
+- **next_times** to generate timestamps of next sales. Here a SQL window function LEAD() returns the next record in the timestamp set in the next_times column.
+- **avg_times** to calculate the average. The average times column is derived with the AVG() function used on the difference between sale timestamps. 
 
 Finally the required parameters are extracted from the average times using SQL EXTRACT() function.
 (Slight issue remains- milliseconds were hard to extract, there exist some negative values in the computations. These can be interpreted by adding the negative values to the rounded data. *Or could milliseconds be ignored, the values can show in seconds if not rounded??!*)
